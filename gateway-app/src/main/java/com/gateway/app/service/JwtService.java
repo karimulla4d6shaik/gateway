@@ -22,9 +22,9 @@ public class JwtService {
 		Date expiration = claims.getExpiration();
 		if(expiration.after(new Date())) {
 			tokenValidate = true;
-			userInformation.setFullname(claims.get("fullname"));
-			userInformation.setUserName(claims.get("Username"));
-			userInformation.setRole(claims.get("Role"));
+			userInformation.setFullname(claims.get("FULLNAME"));
+			userInformation.setUserName(claims.get("USERNAME"));
+			userInformation.setRole(claims.get("ROLE"));
 		}
 		return tokenValidate;
 	}
