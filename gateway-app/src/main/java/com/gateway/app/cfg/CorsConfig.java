@@ -1,6 +1,7 @@
 package com.gateway.app.cfg;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +22,7 @@ public class CorsConfig {
 		CorsConfiguration corsConfig = new CorsConfiguration();
         corsConfig.setAllowedOrigins(Arrays.stream(allowedOrigin.split(",")).collect(Collectors.toList()));
         corsConfig.addAllowedMethod("*");
+        corsConfig.addAllowedHeader("*");
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfig);
 		return new CorsWebFilter(source);
